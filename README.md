@@ -1,4 +1,4 @@
-# cursive_hebrew_recognition
+# Handwritten_hebrew_recognition
 ## Project history
 This repo contains a work in progress I plan to continue on my free time.
 This is the Deep Learning project we presented on February 1st, 2021, at the end the Jedha Fullstack Bootcamp in Paris. Our goal was to go as far as we could in the creation of an app capable of transforming photographs of documents written in cursive Hebrew into a .txt file.
@@ -26,7 +26,7 @@ As we worked with different codes from different people, we used both Tensorflow
 
 The loops overs words' and letters' boxes are not necessarily traveling through the document in the right order, which result in a final .txt file with words in an incorrect order with letters in the incorrect order... This needs to be corrected by forcing the loop to work in the right order, using boxes' coordinates.
 
-As of now, this model is only trained on handwritten letter recognition. A good improvement would be to train it also on numbers (thanks to the MNIST dataset) and punctuation. 
+As of now, this model is only trained on handwritten letter recognition. A good improvement would be to train it also on numbers (thanks to the MNIST dataset) and punctuation.
 
 ## Team
 G. Dubernet, C. Pinheiro, C. Rodap
