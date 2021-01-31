@@ -10,10 +10,12 @@ In order to create such an app, we defined a working pipeline:
 - Boxes detected by the first step would then go through somme preprocessing in order to get OpenCV to detect contours of letters. This worked badly as some letters are sometimes written too close from one another, because some letter are written with two parts (i.e. two objects were detected by OpenCv) and because the noise in the picture was also detected as objects... A further exploration would be to train a YOLO type architecture on both words and letter bounding boxes.
 - Finally, the "letters boxes" would pass through a classification to recognize the letter and add it to a word that would then be written into a .txt file. We used Resnet to train this algorithm. This worked well on individual letters but performed poorly in documents as every noise was also classified as a letter...
 
-## Dataset and models
-In order to train handwritten letters recognition we used the [HDD dataset [^1]](http://tc11.cvc.uab.es/datasets/HHD_v0_1). This dataset is made of 3969 handwritten letters for the train set and 1168 for the test set.
+Ground truth in the Pinkas dataset was expressed following the Page structure. In order to train YOLO model, we had to rewrite it into Pascal-VOC structure. 
 
-For the word detection, we used the [Pinkas dataset[^2]](http://tc11.cvc.uab.es/datasets/Pinkas_1). This dataset is made of pages from a pinkas document, an historical record from the life of Jewish communities at the beginning of the modern era.
+## Dataset and models
+In order to train handwritten letters recognition we used the [HDD dataset [1]](http://tc11.cvc.uab.es/datasets/HHD_v0_1). This dataset is made of 3969 handwritten letters for the train set and 1168 for the test set.
+
+For the word detection, we used the [Pinkas dataset[2]](http://tc11.cvc.uab.es/datasets/Pinkas_1). This dataset is made of pages from a pinkas document, an historical record from the life of Jewish communities at the beginning of the modern era.
 
 We mostly worked in Tensorflow and used the Resnet101 architecture. The YOLO part comes from [the repository of YOLOV5](https://github.com/ultralytics/yolov5).
 
@@ -32,8 +34,8 @@ As of now, this model is only trained on handwritten letter recognition. A good 
 G. Dubernet, C. Pinheiro, C. Rodap
 
 ## References
-[^1] Irina Rabaev, The Handwritten Hebrew Dataset (HHD_v0) ,1,ID:HHD_v0_1,URL:http://tc11.cvc.uab.es/datasets/HHD_v0_1
+[1] Irina Rabaev, The Handwritten Hebrew Dataset (HHD_v0) ,1,ID:HHD_v0_1,URL:http://tc11.cvc.uab.es/datasets/HHD_v0_1
 I. Rabaev, B. Kurar Barakat, A. Churkin and J. El-Sana. The HHD Dataset. The 17th International Conference on Frontiers in Handwriting Recognition, pp. 228-233, 2020.
 
-[^2] Irina Rabaev, The Pinkas Dataset (Pinkas) ,1,ID:Pinkas_1,URL:http://tc11.cvc.uab.es/datasets/Pinkas_1,
+[2] Irina Rabaev, The Pinkas Dataset (Pinkas) ,1,ID:Pinkas_1,URL:http://tc11.cvc.uab.es/datasets/Pinkas_1,
 B.Kurar, I. Rabaev, and J. El-Sana The Pinkas Dataset. B.Kurar, I. Rabaev, and J. El-Sana. The Pinkas Dataset. In the 15th International Conference on Document Analysis and Recognition (ICDAR), pp. 732 - 737, 2019.
