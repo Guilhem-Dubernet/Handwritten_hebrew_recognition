@@ -4,13 +4,13 @@ This repo contains a work in progress I plan to continue on my free time.
 This is the Deep Learning project we presented on February 1st, 2021, at the end the Jedha Fullstack Bootcamp in Paris. Our goal was to go as far as we could in the creation of an app capable of transforming photographs of documents written in cursive Hebrew into a .txt file.
 I got this idea thinking of the potential applications possible in the historical research fields, in order to archive documents and facilitate research and use of archives. I then got joined by two colleagues of the formation.
 
-## Technical description
+## Technical description ggg
 In order to create such an app, we defined a working pipeline:
 - First, the photographs would pass through an object detection algorithm in order to detect words. For this project, we used YOLO as we only had two weeks and it procures a nicely working, easy to use, application. For further improvement, I would like to explore some Recurrent convolutional neural network too.
 - Boxes detected by the first step would then go through somme preprocessing in order to get OpenCV to detect contours of letters. This worked badly as some letters are sometimes written too close from one another, because some letter are written with two parts (i.e. two objects were detected by OpenCv) and because the noise in the picture was also detected as objects... A further exploration would be to train a YOLO type architecture on both words and letter bounding boxes.
 - Finally, the "letters boxes" would pass through a classification to recognize the letter and add it to a word that would then be written into a .txt file. We used Resnet to train this algorithm. This worked well on individual letters but performed poorly in documents as every noise was also classified as a letter...
 
-Ground truth in the Pinkas dataset was expressed following the Page structure. In order to train YOLO model, we had to rewrite it into Pascal-VOC structure. 
+Ground truth in the Pinkas dataset was expressed following the Page structure. In order to train YOLO model, we had to rewrite it into Pascal-VOC structure.
 
 ## Dataset and models
 In order to train handwritten letters recognition we used the [HDD dataset [1]](http://tc11.cvc.uab.es/datasets/HHD_v0_1). This dataset is made of 3969 handwritten letters for the train set and 1168 for the test set.
