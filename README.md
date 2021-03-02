@@ -23,13 +23,13 @@ First, the photographs would pass through an object detection algorithm in order
 In order to make the ground truth understandable by Roboflow, we had to transpose the xml files from a Page structure into a Pascal-VOC structure and developed a "Page to VOC writer" in order to do so.
 
 After training YoloV5 on the PInkas Dataset, we obtained a pretty good detection of our only class "word" as we can see below: the picture above is the ground truth from the Pinaks dataset and the picture below shows our detection. We have around 60% of the word detected with above a certainty of 0.8 and above (the detection was calibrated to only keep classes detected with a certainty higher than 0.5).
-<p align="center"><img src="data/word_detection.jpg"\></p>
+<p align="center"><img src="data/word_detection.png"\></p>
 
 This result isn't perfect, of course, but it allowed us to go further in our development. For further improvement, I would like to explore some Recurrent convolutional neural network too.
 
 ### Letter detection using OpenCV
 Boxes of words detected by the first step are then going through somme preprocessing in order to get OpenCV to detect contours of letters. This worked badly as some letters are sometimes written too close from one another (i.e. one object was detected instead of two), because some letter are written with two parts (i.e. two objects were detected by OpenCv) and because the noise in the picture was also detected as objects... We can see the preprocessing in the image below with the poor detection of letters at the end.
-<p align="center"><img src="data/letter_detection.jpg"\></p>
+<p align="center"><img src="data/letter_detection.png"\></p>
 
 We developed this part knowing from the start that OpenCV could be limited for our use, but it allowed us to explore solutions and to go further without having to train yet another model. A further exploration would be to train a YOLO type architecture on both words and letter bounding boxes, but the Pinkas dataset doesn't offer such a level of precision.
 
